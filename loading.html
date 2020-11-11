@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /*******************************************************************************
+      ********************     Full screen Loading Animation      ********************
+      ********************       Author: Sayantan Adhikary        ********************   
+      ********************************************************************************/
+      @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline+Text:wght@900&&display=swap");
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --stripe-size: 100px;
+        --color1: #19d3da;
+        --color2: #373a40;
+        --duration: 1s;
+      }
+      .container {
+        display: grid;
+        width: 100vw;
+        height: 100vh;
+        align-content: center;
+        justify-content: center;
+      }
+      .load {
+        font-size: 8rem;
+        font-family: "Big Shoulders Inline Text";
+        color: rgba(0, 0, 0, 0);
+        background: repeating-linear-gradient(
+          45deg,
+          var(--color1) 25%,
+          var(--color1) 50%,
+          var(--color2) 50%,
+          var(--color2) 75%
+        );
+        background-size: var(--stripe-size) var(--stripe-size);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-animation: stripeBackgroundPosition var(--duration) linear
+          infinite;
+        animation: stripeBackgroundPosition var(--duration) linear infinite;
+      }
+      @-webkit-keyframes stripeTransform {
+        0% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+        }
+        100% {
+          -webkit-transform: translateX(calc(var(--stripe-size) * -1));
+          transform: translateX(calc(var(--stripe-size) * -1));
+        }
+      }
+      @keyframes stripeTransform {
+        0% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+        }
+        100% {
+          -webkit-transform: translateX(calc(var(--stripe-size) * -1));
+          transform: translateX(calc(var(--stripe-size) * -1));
+        }
+      }
+      @-webkit-keyframes stripeBackgroundPosition {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: calc(var(--stripe-size) * -1) 0;
+        }
+      }
+      @keyframes stripeBackgroundPosition {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: calc(var(--stripe-size) * -1) 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="load">Loading ...</h1>
+    </div>
+  </body>
+</html>
